@@ -1,0 +1,41 @@
+# ==============================================================================
+# Configuration Parameters for autonoms_car AI Obstacle Avoidance
+# ==============================================================================
+
+/**:
+  ros__parameters:
+    # --------------------------------------------------------------------------
+    # ROS 2 Topics
+    # --------------------------------------------------------------------------
+    scan_topic: "/scan"
+    cmd_vel_topic: "/cmd_vel"
+
+    # --------------------------------------------------------------------------
+    # Vehicle Kinematic Limits (Differential Drive Toy Car)
+    # --------------------------------------------------------------------------
+    max_linear_vel: 0.35      # Maximum forward speed (meters/sec)
+    max_angular_vel: 1.20     # Maximum turning speed (radians/sec)
+
+    # --------------------------------------------------------------------------
+    # LiDAR Sensor & Preprocessing Configuration
+    # --------------------------------------------------------------------------
+    num_sectors: 36           # Number of angular sectors (10 degrees each for 360 FOV)
+    range_min: 0.10           # Minimum sensor distance (meters)
+    range_max: 5.00           # Maximum distance for clipping/normalization (meters)
+
+    # --------------------------------------------------------------------------
+    # Obstacle Avoidance Distance Thresholds
+    # --------------------------------------------------------------------------
+    safe_distance: 1.20       # Begin slowing down and steering away (meters)
+    stop_distance: 0.35       # Halt forward progress and rotate in place (meters)
+    emergency_stop_dist: 0.30 # Hard safety shield emergency override (meters)
+
+    # --------------------------------------------------------------------------
+    # Safety Watchdog & Model Execution
+    # --------------------------------------------------------------------------
+    watchdog_timeout: 0.35    # Halt robot if sensor data stalls longer than this (seconds)
+    use_cuda: true            # Use GPU if available (falls back to CPU automatically)
+    model_path: "models/obstacle_avoidance_mlp.pth"
+    output_path: "dataset/training_data.npz"
+    target_samples: 4000
+    ignore_idle: true
