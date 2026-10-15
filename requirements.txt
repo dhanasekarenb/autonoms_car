@@ -1,0 +1,25 @@
+# ==============================================================================
+# autonoms_car: Python Dependencies
+# ==============================================================================
+#
+# NOTE ON ROS 2 PACKAGES:
+# ROS 2 packages (rclpy, sensor_msgs, geometry_msgs, launch, etc.) are NOT 
+# installed via pip. They are provided by your system ROS 2 installation 
+# (/opt/ros/$ROS_DISTRO) and accessed via:
+#   python3 -m venv --system-site-packages ~/a_car
+#
+# ==============================================================================
+
+# Core Deep Learning & Tensor Computation
+torch>=2.0.0
+numpy>=1.24.0,<2.0.0
+
+# Configuration & Utilities
+pyyaml>=6.0
+setuptools>=65.0.0
+
+# Testing & Quality Assurance
+pytest>=7.0.0
+
+# Optional: Data Analysis & Plotting (loss curves, sensor inspections)
+matplotlib>=3.7.0
